@@ -240,15 +240,19 @@ def main():
     st.title("California Housing Data Analytics Tool")
 
     uploaded_file = st.file_uploader("Select the CSV file containing the data", type="csv")
+    
     if uploaded_file is not None:
         data = load_data(uploaded_file)
         st.write("Data has been uploaded successfully")
+    else:
+        st.info("No file uploaded. Using default: California_Houses.csv")
+        data = load_data("California_Houses.csv")
 
-        if st.button("Data Analysis"):
-            analyze_data(data)
-        
-        if st.button("Save analysis results"):
-            save_analysis_results(data, "analysis_results.csv")
+    if st.button("Data Analysis"):
+        analyze_data(data)
+
+    if st.button("Save analysis results"):
+        save_analysis_results(data, "analysis_results.csv")
 
 if __name__ == "__main__":
     main()
