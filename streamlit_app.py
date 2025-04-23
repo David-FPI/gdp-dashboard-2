@@ -239,14 +239,12 @@ def save_analysis_results(data, filename):
 def main():
     st.title("California Housing Data Analytics Tool")
 
-
-    # Load dữ liệu từ file cố định
+    # Tải dữ liệu trực tiếp từ file mặc định
     data = load_data("California_Houses.csv")
     st.write("Dữ liệu đã được tải từ file California_Houses.csv")
 
-    # Nút bấm để phân tích dữ liệu
-    if st.button("Phân tích dữ liệu"):
-        analyze_data(data)
+    # Phân tích dữ liệu ngay lập tức
+    analyze_data(data)
 
     # Nút bấm để lưu kết quả
     if st.button("Lưu kết quả phân tích"):
